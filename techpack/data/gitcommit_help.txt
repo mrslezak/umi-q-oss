@@ -1,0 +1,5 @@
+techpack: Integrate Qualcomm data-kernel package
+https://github.com/engstk/op7/commit/aa9d31f053d0952dd6d4fc032ae92395e5ba5ab6
+
+techpack: rmnet: just make it builtin
+https://github.com/engstk/op7/commit/aab08ce8a6bae02119670218c67ee99bf26ed6b4
