@@ -15,7 +15,7 @@ export PATH=${CLANG_PATH}:${PATH}
 export CLANG_TRIPLE=aarch64-linux-gnu-
 export CROSS_COMPILE=${HOME}/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android- CC=clang CXX=clang++
 #export CROSS_COMPILE_ARM32=${HOME}/toolchains/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
-export KBUILD_COMPILER_STRING=$(~/android/Toolchains/clang/clang10/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
+export KBUILD_COMPILER_STRING=$(~/toolchains/Clang-11/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 export CXXFLAGS="$CXXFLAGS -fPIC"
 export DTC_EXT=dtc
 
@@ -29,12 +29,12 @@ ZIMAGE_DIR="${HOME}/umi-q-oss/out-clang/arch/arm64/boot/"
 VER=".1.0"
 
 # Vars
-BASE_AK_VER="Xiaomi"
+BASE_AK_VER="MOD-Kernel-V0.1"
 AK_VER="$BASE_AK_VER$VER"
 export LOCALVERSION=~`echo $AK_VER`
 export ARCH=arm64
 export SUBARCH=arm64
-export KBUILD_BUILD_USER=VMUSER
+export KBUILD_BUILD_USER=MattoftheDead
 export KBUILD_BUILD_HOST=Ubuntu18.04
 
 DATE_START=$(date +"%s")
