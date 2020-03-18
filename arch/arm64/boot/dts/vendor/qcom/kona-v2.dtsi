@@ -134,7 +134,6 @@
 			<  825600 MHZ_TO_MBPS( 547, 4) >,
 			< 1056000 MHZ_TO_MBPS( 768, 4) >,
 			< 1286400 MHZ_TO_MBPS(1017, 4) >,
-			< 1574400 MHZ_TO_MBPS(1353, 4) >,
 			< 1862400 MHZ_TO_MBPS(1555, 4) >,
 			< 2419200 MHZ_TO_MBPS(1804, 4) >,
 			< 2745600 MHZ_TO_MBPS(2092, 4) >,
@@ -162,7 +161,7 @@
 		qcom,core-dev-table =
 			< 1862400 MHZ_TO_MBPS( 200, 4) >,
 			< 2745600 MHZ_TO_MBPS(1017, 4) >,
-			< 2841600 MHZ_TO_MBPS(2092, 4) >;
+			< 2841600 MHZ_TO_MBPS(2736, 4) >;
 	};
 
 	ddr5-map {
