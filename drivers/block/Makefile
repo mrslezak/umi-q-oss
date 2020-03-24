@@ -46,6 +46,6 @@ skd-y		:= skd_main.o
 swim_mod-y	:= swim.o swim_asm.o
 
 obj-$(CONFIG_VSERVICES_BLOCK_SERVER)     += vs_block_server.o
-CFLAGS_vs_block_server.o += -Werror
+CFLAGS_vs_block_server.o += -Wno-error
 obj-$(CONFIG_VSERVICES_BLOCK_CLIENT)     += vs_block_client.o
-CFLAGS_vs_block_client.o += -Werror
+CFLAGS_vs_block_client.o += -Wno-error
