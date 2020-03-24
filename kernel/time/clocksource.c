@@ -1244,7 +1244,7 @@ static int __init boot_override_clocksource(char* str)
 	return 1;
 }
 
-__setup("clocksource=", boot_override_clocksource);
+/*__setup("clocksource=", boot_override_clocksource);
 
 /**
  * boot_override_clock - Compatibility layer for deprecated boot option
@@ -1263,4 +1263,5 @@ static int __init boot_override_clock(char* str)
 	return boot_override_clocksource(str);
 }
 
-__setup("clock=", boot_override_clock);
+/*__setup("clock=", boot_override_clock);
+*/
