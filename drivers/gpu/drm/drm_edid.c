@@ -1353,7 +1353,6 @@ int drm_edid_header_is_valid(const u8 *raw_edid)
 
 	return score;
 }
-EXPORT_SYMBOL(drm_edid_header_is_valid);
 
 static int edid_fixup __read_mostly = 6;
 module_param_named(edid_fixup, edid_fixup, int, 0400);
@@ -1476,7 +1475,6 @@ bad:
 	}
 	return false;
 }
-EXPORT_SYMBOL(drm_edid_block_valid);
 
 /**
  * drm_edid_is_valid - sanity check EDID data
@@ -1500,7 +1498,6 @@ bool drm_edid_is_valid(struct edid *edid)
 
 	return true;
 }
-EXPORT_SYMBOL(drm_edid_is_valid);
 
 #define DDC_SEGMENT_ADDR 0x30
 /**
@@ -1639,7 +1636,6 @@ int drm_add_override_edid_modes(struct drm_connector *connector)
 
 	return num_modes;
 }
-EXPORT_SYMBOL(drm_add_override_edid_modes);
 
 /**
  * drm_do_get_edid - get EDID data using a custom EDID block read function
@@ -1754,7 +1750,6 @@ out:
 	kfree(edid);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(drm_do_get_edid);
 
 /**
  * drm_probe_ddc() - probe DDC presence
@@ -1769,7 +1764,6 @@ drm_probe_ddc(struct i2c_adapter *adapter)
 
 	return (drm_do_probe_ddc_edid(adapter, &out, 0, 1) == 0);
 }
-EXPORT_SYMBOL(drm_probe_ddc);
 
 /**
  * drm_get_edid - get EDID data, if available
@@ -1797,7 +1791,6 @@ struct edid *drm_get_edid(struct drm_connector *connector,
 		drm_get_displayid(connector, edid);
 	return edid;
 }
-EXPORT_SYMBOL(drm_get_edid);
 
 /**
  * drm_get_edid_switcheroo - get EDID data for a vga_switcheroo output
@@ -1822,7 +1815,6 @@ struct edid *drm_get_edid_switcheroo(struct drm_connector *connector,
 
 	return edid;
 }
-EXPORT_SYMBOL(drm_get_edid_switcheroo);
 
 /**
  * drm_edid_duplicate - duplicate an EDID and the extensions
@@ -1834,7 +1826,6 @@ struct edid *drm_edid_duplicate(const struct edid *edid)
 {
 	return kmemdup(edid, (edid->extensions + 1) * EDID_LENGTH, GFP_KERNEL);
 }
-EXPORT_SYMBOL(drm_edid_duplicate);
 
 /*** EDID parsing ***/
 
@@ -1976,7 +1967,6 @@ struct drm_display_mode *drm_mode_find_dmt(struct drm_device *dev,
 
 	return NULL;
 }
-EXPORT_SYMBOL(drm_mode_find_dmt);
 
 typedef void detailed_cb(struct detailed_timing *timing, void *closure);
 
@@ -3127,7 +3117,6 @@ u8 drm_match_cea_mode(const struct drm_display_mode *to_match)
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_match_cea_mode);
 
 static bool drm_valid_cea_vic(u8 vic)
 {
@@ -3145,7 +3134,6 @@ enum hdmi_picture_aspect drm_get_cea_aspect_ratio(const u8 video_code)
 {
 	return edid_cea_modes[video_code].picture_aspect_ratio;
 }
-EXPORT_SYMBOL(drm_get_cea_aspect_ratio);
 
 /*
  * Calculate the alternate clock for HDMI modes (those from the HDMI vendor
@@ -4246,7 +4234,6 @@ void drm_edid_get_monitor_name(struct edid *edid, char *name, int bufsize)
 	memcpy(name, buf, name_length);
 	name[name_length] = '\0';
 }
-EXPORT_SYMBOL(drm_edid_get_monitor_name);
 
 static void clear_eld(struct drm_connector *connector)
 {
@@ -4415,7 +4402,6 @@ int drm_edid_to_sad(struct edid *edid, struct cea_sad **sads)
 
 	return count;
 }
-EXPORT_SYMBOL(drm_edid_to_sad);
 
 /**
  * drm_edid_to_speaker_allocation - extracts Speaker Allocation Data Blocks from EDID
@@ -4470,7 +4456,6 @@ int drm_edid_to_speaker_allocation(struct edid *edid, u8 **sadb)
 
 	return count;
 }
-EXPORT_SYMBOL(drm_edid_to_speaker_allocation);
 
 /**
  * drm_av_sync_delay - compute the HDMI/DP sink audio-video sync delay
@@ -4511,7 +4496,6 @@ int drm_av_sync_delay(struct drm_connector *connector,
 
 	return max(v - a, 0);
 }
-EXPORT_SYMBOL(drm_av_sync_delay);
 
 /**
  * drm_detect_hdmi_monitor - detect whether monitor is HDMI
@@ -4545,7 +4529,6 @@ bool drm_detect_hdmi_monitor(struct edid *edid)
 
 	return false;
 }
-EXPORT_SYMBOL(drm_detect_hdmi_monitor);
 
 /**
  * drm_detect_monitor_audio - check monitor audio capability
@@ -4592,7 +4575,6 @@ bool drm_detect_monitor_audio(struct edid *edid)
 end:
 	return has_audio;
 }
-EXPORT_SYMBOL(drm_detect_monitor_audio);
 
 /**
  * drm_rgb_quant_range_selectable - is RGB quantization range selectable?
@@ -4628,7 +4610,6 @@ bool drm_rgb_quant_range_selectable(struct edid *edid)
 
 	return false;
 }
-EXPORT_SYMBOL(drm_rgb_quant_range_selectable);
 
 /**
  * drm_default_rgb_quant_range - default RGB quantization range
@@ -4647,7 +4628,6 @@ drm_default_rgb_quant_range(const struct drm_display_mode *mode)
 		HDMI_QUANTIZATION_RANGE_LIMITED :
 		HDMI_QUANTIZATION_RANGE_FULL;
 }
-EXPORT_SYMBOL(drm_default_rgb_quant_range);
 
 static void drm_parse_ycbcr420_deep_color_info(struct drm_connector *connector,
 					       const u8 *db)
@@ -5166,7 +5146,6 @@ int drm_add_edid_modes(struct drm_connector *connector, struct edid *edid)
 
 	return num_modes;
 }
-EXPORT_SYMBOL(drm_add_edid_modes);
 
 /**
  * drm_add_modes_noedid - add modes for the connectors without EDID
@@ -5214,8 +5193,6 @@ int drm_add_modes_noedid(struct drm_connector *connector,
 	}
 	return num_modes;
 }
-EXPORT_SYMBOL(drm_add_modes_noedid);
-
 /**
  * drm_set_preferred_mode - Sets the preferred mode of a connector
  * @connector: connector whose mode list should be processed
@@ -5236,7 +5213,6 @@ void drm_set_preferred_mode(struct drm_connector *connector,
 			mode->type |= DRM_MODE_TYPE_PREFERRED;
 	}
 }
-EXPORT_SYMBOL(drm_set_preferred_mode);
 
 /**
  * drm_hdmi_avi_infoframe_from_display_mode() - fill an HDMI AVI infoframe with
@@ -5325,7 +5301,6 @@ drm_hdmi_avi_infoframe_from_display_mode(struct hdmi_avi_infoframe *frame,
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_hdmi_avi_infoframe_from_display_mode);
 
 /**
  * drm_hdmi_avi_infoframe_quant_range() - fill the HDMI AVI infoframe
@@ -5384,7 +5359,6 @@ drm_hdmi_avi_infoframe_quant_range(struct hdmi_avi_infoframe *frame,
 		frame->ycc_quantization_range =
 			HDMI_YCC_QUANTIZATION_RANGE_FULL;
 }
-EXPORT_SYMBOL(drm_hdmi_avi_infoframe_quant_range);
 
 static enum hdmi_3d_structure
 s3d_structure_from_display_mode(const struct drm_display_mode *mode)
@@ -5472,7 +5446,6 @@ drm_hdmi_vendor_infoframe_from_display_mode(struct hdmi_vendor_infoframe *frame,
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_hdmi_vendor_infoframe_from_display_mode);
 
 static int drm_parse_tiled_block(struct drm_connector *connector,
 				 struct displayid_block *block)
