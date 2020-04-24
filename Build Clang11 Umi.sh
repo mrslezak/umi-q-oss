@@ -5,6 +5,9 @@ clear
 cd ~/umi-q-oss/
 cp Makefile.clang11 Makefile
 
+rm -rf out-clang
+mkdir out-clang
+
 # Resources
 THREAD="-j8"
 KERNEL="Image"
@@ -46,8 +49,8 @@ echo "-------------------"
 echo -e "${restore}"
 
 echo
-make CC=clang CXX=clang++ O=out-clang $DEFCONFIG
-make CC=clang CXX=clang++ O=out-clang $THREAD 2>&1 | tee kernel.log
+make CC="ccache clang" CXX="ccache clang++" O=out-clang $DEFCONFIG
+make CC="ccache clang" CXX="ccache clang++" O=out-clang $THREAD 2>&1 | tee kernel.log
 
 echo -e "${green}"
 echo "-------------------"

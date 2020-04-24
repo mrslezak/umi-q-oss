@@ -5,6 +5,9 @@ clear
 cd ~/umi-q-oss/
 cp Makefile.gcc10 Makefile
 
+rm -rf out
+mkdir out
+
 # Resources
 THREAD="-j8"
 KERNEL="Image"
