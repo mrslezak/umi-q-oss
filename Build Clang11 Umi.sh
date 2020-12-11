@@ -52,6 +52,21 @@ echo
 make CC="ccache clang" CXX="ccache clang++" O=out-clang $DEFCONFIG
 make CC="ccache clang" CXX="ccache clang++" O=out-clang $THREAD 2>&1 | tee kernel.log
 
+# Make a dtb file
+#find ~/RM5G/out-clang/arch/arm64/boot/dts/vendor/qcom -name '*.dtb' -exec cat {} + > ~/RM5G/out-clang/arch/arm64/boot/dtb
+cd ~/umi-q-oss/out-clang/arch/arm64/boot/
+cat dts/vendor/qcom/kona.dtb dts/vendor/qcom/kona-v2.dtb dts/vendor/qcom/kona-v2.1.dtb > dtb
+ls -a
+
+# Put dtb and Image.gz in an AnyKernel3 zip archive and flash from TWRP
+AK_ZIP="$AK_VER.zip"
+cp dtb ~/AnyKernel3/
+cp Image.gz ~/AnyKernel3/
+cd ~/AnyKernel3/
+zip -r9 ${AK_ZIP} .
+ls *.zip
+mv ${AK_ZIP} ~/
+
 echo -e "${green}"
 echo "-------------------"
 echo "Build Completed in:"
