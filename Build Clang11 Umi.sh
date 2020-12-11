@@ -53,7 +53,7 @@ make CC="ccache clang" CXX="ccache clang++" O=out-clang $DEFCONFIG
 make CC="ccache clang" CXX="ccache clang++" O=out-clang $THREAD 2>&1 | tee kernel.log
 
 # Make a dtb file
-#find ~/RM5G/out-clang/arch/arm64/boot/dts/vendor/qcom -name '*.dtb' -exec cat {} + > ~/RM5G/out-clang/arch/arm64/boot/dtb
+#find ~/umi-q-oss/out-clang/arch/arm64/boot/dts/vendor/qcom -name '*.dtb' -exec cat {} + > ~/RM5G/out-clang/arch/arm64/boot/dtb
 cd ~/umi-q-oss/out-clang/arch/arm64/boot/
 cat dts/vendor/qcom/kona.dtb dts/vendor/qcom/kona-v2.dtb dts/vendor/qcom/kona-v2.1.dtb > dtb
 ls -a
